@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "api",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "export PATH=/opt/homebrew/bin:$PATH JWT_SECRET=dev-only-5127b967d77123c6328d8994c9eb6384 SEED_USER_EMAIL=dev@example.com SEED_USER_PASSWORD=dev-3338e0b0; exec npm run dev:api"
+      ],
+      "port": 3001
+    },
+    {
+      "name": "web",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "export PATH=/opt/homebrew/bin:$PATH; exec npm run dev -w @login-lab/web -- --port 5173 --strictPort"
+      ],
+      "port": 5173
+    }
+  ]
+}
