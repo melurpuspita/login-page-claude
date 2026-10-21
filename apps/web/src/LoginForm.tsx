@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import type { AuthUser } from "@login-lab/shared";
-import { InvalidCredentialsError, login } from "./api";
+import { InvalidCredentialsError, isDummyLogin, login } from "./api";
 
 export function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
   const [error, setError] = useState("");
@@ -28,10 +28,13 @@ export function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }
     }
   }
 
+  const dummy = isDummyLogin();
+
   return (
     <form onSubmit={onSubmit}>
+      {dummy && <p className="demo-note">Mode demo: isi email dan password apa saja untuk masuk.</p>}
       <label>
-        Email <input name="email" type="email" required autoComplete="email" placeholder="kucing@galaksi.id" />
+        Email <input name="email" type={dummy ? "text" : "email"} required autoComplete="email" placeholder="kucing@galaksi.id" />
       </label>
       <label>
         Password{" "}

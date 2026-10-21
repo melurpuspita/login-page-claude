@@ -186,6 +186,17 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   border-radius: 10px;
 }
 
+.demo-note {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgb(94 231 255 / 0.08);
+  border: 1px dashed rgb(94 231 255 / 0.4);
+  border-radius: 10px;
+}
+
 .status { margin: 0; text-align: center; color: var(--muted); }
 
 /* ---------- Game ---------- */
