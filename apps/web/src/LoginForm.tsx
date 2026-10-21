@@ -31,13 +31,13 @@ export function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }
   return (
     <form onSubmit={onSubmit}>
       <label>
-        Email <input name="email" type="email" required autoComplete="email" />
+        Email <input name="email" type="email" required autoComplete="email" placeholder="kucing@galaksi.id" />
       </label>
       <label>
         Password{" "}
-        <input name="password" type="password" required autoComplete="current-password" />
+        <input name="password" type="password" required autoComplete="current-password" placeholder="••••••••" />
       </label>
-      <button type="submit" disabled={submitting}>
+      <button type="submit" className="btn-primary" disabled={submitting}>
         {submitting ? "Memproses..." : "Masuk"}
       </button>
       {error && <p role="alert">{error}</p>}

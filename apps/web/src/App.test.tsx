@@ -101,4 +101,12 @@ describe("App", () => {
     await userEvent.click(await screen.findByRole("button", { name: "Keluar" }));
     expect(await screen.findByRole("button", { name: "Masuk" })).toBeInTheDocument();
   });
+
+  it("setelah login menampilkan game luar angkasa dengan skor awal", async () => {
+    stubApi({ "GET /auth/me": () => json(200, { user: USER }) });
+    render(<App />);
+    expect(await screen.findByRole("button", { name: "Mulai terbang" })).toBeInTheDocument();
+    expect(screen.getByText("Skor")).toBeInTheDocument();
+    expect(screen.getByLabelText("Nyawa 3 dari 3")).toBeInTheDocument();
+  });
 });
